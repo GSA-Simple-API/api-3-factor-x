@@ -37,9 +37,12 @@
     <![endif]-->
        
     <script type="text/javascript">
+    
+        var $Path = '/swagger/simple-api/api-3-factor-x/api.json';
+    
         $(function () {
             window.swaggerUi = new SwaggerUi({
-                url: "/api-3-factor-x/api.json",
+                url: "http://api.gsa.apievangelist.com" . $Path,
                 dom_id: "swagger-ui-container",
                 supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
                 onComplete: function(swaggerApi, swaggerUi){
