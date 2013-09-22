@@ -13,9 +13,9 @@
                 {
                     "method": "GET",
                     "summary": "Finds all 3-factor-x",
-                    "notes": "Returns a list of all 3-factor-x, allowing you to filter by state and keyword query. You can also apply a custom callback to the JSON response.",
-                    "nickname": "getFacilities",
-                    "type": "facilities",
+                    "notes": "Returns a list of all 3-factor-x, allowing you to filter by state and keyword query.",
+                    "nickname": "get3FactorX",
+                    "type": "3-factor-x",
                     "parameters": [
                         {
                             "name": "query",
@@ -23,15 +23,21 @@
                             "required": false,
                             "allowMultiple": false,
                             "dataType": "string",
-                            "paramType": "query"
-                        },
-                        {
-                            "name": "callback",
-                            "description": "the callback for API call",
-                            "required": false,
-                            "allowMultiple": false,
-                            "dataType": "string",
-                            "paramType": "query"
+                            "paramType": "query",
+							"applyTo": [
+                                {
+                                    "property": "x"
+                                },
+                                {
+                                    "property": "xfactor_1"
+                                },
+                                {
+                                    "property": "xfactor_2"
+                                },
+                                {
+                                    "property": "xfactor_3"
+                                }
+                            ]                              
                         }
                     ],
                     "produces": [
@@ -66,14 +72,6 @@
                             "allowMultiple": false,
                             "dataType": "integer",
                             "paramType": "path"
-                        },
-                        {
-                            "name": "callback",
-                            "description": "the callback for API call",
-                            "required": false,
-                            "allowMultiple": false,
-                            "dataType": "string",
-                            "paramType": "query"
                         }
                     ],
                     "responseMessages": [
@@ -91,34 +89,22 @@
         }
     ],
     "models": {
-        "Offices": {
+        "3-factor-x": {
             "id": "3-factor-x",
             "properties": {
                 "id": {
                     "type": "integer"
                 },
-                "office": {
+                "x": {
                     "type": "string"
                 },
-                "address_1": {
+                "xfactor_1": {
                     "type": "string"
                 },
-                "address_2": {
+                "xfactor_2": {
                     "type": "string"
                 },
-                "city": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "zip": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": "string"
-                },
-                "email": {
+                "xfactor_3": {
                     "type": "string"
                 }
             }
